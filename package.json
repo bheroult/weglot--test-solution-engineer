@@ -1,5 +1,8 @@
 {
   "name": "solution-engineer-test",
   "module": "index.js",
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot run ./src/index.js"
+  }
 }
