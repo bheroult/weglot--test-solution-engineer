@@ -1,25 +1,31 @@
-⚠️ **Pas de fork, ni de PR. Utilisez ce repo comme un template sur votre compte par exemple**
+# Weglot Test Solution Engineer
+A test that proxy [dow.com](dow.com) website to provide a partial translation for french content.
 
-# solution-engineer-test
+## Prerequisite
+Bun ([bun.sh](bun.sh)) (version used for development: 1.0.30)
 
-Nous devons aider l'équipe sales pour une démo client, ils utilisent une technologie qui n'est pas courante: [Bun](https://bun.sh/)
+## Commands
+Run development server :
+```bash
+bun run dev
+```
+Run for production :
+```bash
+bun run ./src/index.js
+```
+Run tests :
+```bash
+bun test
+```
 
-Il va falloir l'installer et apprendre à l'utiliser pour intégrer notre solution
+## How to know it works
+ - You can navigate inside english content
+ - Once you access french content (by replacing `/en-us` with `/fr-fr` in url), you can keep jump from page to page while keeping translation content
+ - An element translated on every page is the "Contact us" at the top right corner
+ 
+## Limitatins
+ - It is assumed that reference content is on english ressources
 
-Etape 1: créer un proxy qui permet d'afficher le site du client (www.dow.com) *correctement* via le serveur local Bun
-
-Résultat:
-
-![www.dow.com](screens/step1.png)
-
-Etape 2: créer une version avec `/fr-fr` au lieu de `/en-us` dans l'URL.
-
-Toutes les pages qui commencent normalement par `/en-us/*` seront maintenant aussi accessibles sur `/fr-fr/*`
-
-Etape 3: utiliser `dictionary.json` pour traduire n'importe quel mot sur le site affiché sur la version `/fr-fr/*` seulement
-
-Résultat:
-
-![www.dow.com](screens/step2.png)
-
-Etape 4: on pourrait naviguer sur `/fr-fr/*` comme sur le site original ?
+## What might be improved
+- For translation service tests, mocking dictionary would be necessary
+- Turning a string into HTML content must be done in a proper way
